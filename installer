@@ -11,7 +11,7 @@ fi
 log_pass "Start installation."
 
 if [[ ! -d "$XDG_CONFIG_HOME" ]]; then
-    log_info "Creates .config directory."
+    log_info "Creates $XDG_CONFIG_HOME directory."
     mkdir -p "$XDG_CONFIG_HOME"
 fi
 
@@ -24,6 +24,15 @@ if [[ ! -d "$HOME/.tmux/plugins" ]]; then
     log_info "Install tmux plugin manager..."
     # @see https://github.com/tmux-plugins/tpm#installation
     git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+
+log_info "Check git configuration."
+if [[ ! -d "${XDG_CONFIG_HOME}git" ]]; then
+    log_info "Creates ${XDG_CONFIG_HOME}git directory."
+    mkdir -p "${XDG_CONFIG_HOME}git"
+    ln -s "$(pwd)/.gitconfig" "${XDG_CONFIG_HOME}git/config"
+    ln -s "$(pwd)/.gitignore" "${XDG_CONFIG_HOME}git/ignore"
+    ln -s "$(pwd)/.commit_template" "${XDG_CONFIG_HOME}git/.commit_template"
 fi
 
 log_pass "Finish installation."
