@@ -1,0 +1,16 @@
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['typescript', 'typescript.tsx']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript', 'typescript.tsx']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+
+# for vuetify
+[[plugins]]
+repo = 'albanm/vuetify-vim'
+on_ft = ['vue']

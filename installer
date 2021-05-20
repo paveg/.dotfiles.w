@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. ./lib/utilities.sh
+
+log_info "hello installer"
+
