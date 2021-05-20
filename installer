@@ -2,6 +2,12 @@
 
 source "./lib/utilities.sh"
 
+log_info "Update apt packages"
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update
+sudo apt-get install -y fish curl git
+
+
 log_info "Check environment."
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
     log_fail "Please set XDG_CONFIG_HOME environment."
@@ -35,7 +41,7 @@ if [[ ! -d "${XDG_CONFIG_HOME}git" ]]; then
     ln -s "$(pwd)/.commit_template" "${XDG_CONFIG_HOME}git/.commit_template"
 fi
 
-if [[ -d "${XDG_CONFIG_HOME}fish" ]]; then
+if [[ ! -d "${XDG_CONFIG_HOME}fish" ]]; then
     log_info "Creates ${XDG_CONFIG_HOME}fish directory."
     mkdir -p "${XDG_CONFIG_HOME}fish"
     ln -s "$(pwd)/fish/config.fish" "${XDG_CONFIG_HOME}fish/config.fish"
