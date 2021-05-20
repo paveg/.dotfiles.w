@@ -7,6 +7,8 @@
     root = ~/src
 [credential]
     helper = manager # for windows credential manager
+[core]
+    editor = vi
 [alias]
     a = add
     c = commit
