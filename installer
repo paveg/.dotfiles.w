@@ -19,15 +19,11 @@ if [[ ! -e "$HOME/.tmux.conf" ]]; then
     ln -s "$(pwd)/.tmux.conf" "$HOME/.tmux.conf"
 fi
 
+log_info "Check tmux plugin manager."
 if [[ ! -d "$HOME/.tmux/plugins" ]]; then
     log_info "Install tmux plugin manager..."
     # @see https://github.com/tmux-plugins/tpm#installation
     git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
-
-# TODO: Implementation actual installation process.
-log_warn "Please implementation installer."
-
-exit 1
 
 log_pass "Finish installation."
