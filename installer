@@ -1,6 +1,22 @@
 #!/bin/bash
 
-. ./lib/utilities.sh
+source "./lib/utilities.sh"
 
-log_info "hello installer"
+log_info "Check environment."
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+    log_fail "Please set XDG_CONFIG_HOME environment."
+    exit 1
+fi
 
+log_pass "Start installation."
+
+if [[ ! -d "$XDG_CONFIG_HOME" ]]; then
+    log_info "Creates .config directory."
+    mkdir -p "$XDG_CONFIG_HOME"
+fi
+
+# TODO: Implementation actual installation process.
+log_warn "Please implementation installer."
+exit 1
+
+log_pass "Finish installation."
