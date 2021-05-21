@@ -6,6 +6,7 @@ log_info "Update apt packages"
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
 sudo apt-get install -y fish curl git
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish # Install fish package manager
 
 
 log_info "Check environment."
