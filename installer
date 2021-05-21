@@ -34,19 +34,19 @@ if [[ ! -d "$HOME/.tmux/plugins" ]]; then
 fi
 
 log_info "Check git configuration."
-if [[ ! -d "${XDG_CONFIG_HOME}git" ]]; then
-    log_info "Creates ${XDG_CONFIG_HOME}git directory."
-    mkdir -p "${XDG_CONFIG_HOME}git"
-    ln -s "$(pwd)/.gitconfig" "${XDG_CONFIG_HOME}git/config"
-    ln -s "$(pwd)/.gitignore" "${XDG_CONFIG_HOME}git/ignore"
-    ln -s "$(pwd)/.commit_template" "${XDG_CONFIG_HOME}git/.commit_template"
+if [[ ! -d "${XDG_CONFIG_HOME}/git" ]]; then
+    log_info "Creates ${XDG_CONFIG_HOME}/git directory."
+    mkdir -p "${XDG_CONFIG_HOME}/git"
+    ln -s "$(pwd)/.gitconfig" "${XDG_CONFIG_HOME}/git/config"
+    ln -s "$(pwd)/.gitignore" "${XDG_CONFIG_HOME}/git/ignore"
+    ln -s "$(pwd)/.commit_template" "${XDG_CONFIG_HOME}/git/.commit_template"
 fi
 
 if [[ ! -d "${XDG_CONFIG_HOME}fish" ]]; then
-    log_info "Creates ${XDG_CONFIG_HOME}fish directory."
-    mkdir -p "${XDG_CONFIG_HOME}fish"
-    ln -s "$(pwd)/fish/config.fish" "${XDG_CONFIG_HOME}fish/config.fish"
-    ln -s "$(pwd)/fish/fish_plugins" "${XDG_CONFIG_HOME}fish/fish_plugins"
+    log_info "Creates ${XDG_CONFIG_HOME}/fish directory."
+    mkdir -p "${XDG_CONFIG_HOME}/fish"
+    ln -s "$(pwd)/fish/config.fish" "${XDG_CONFIG_HOME}/fish/config.fish"
+    ln -s "$(pwd)/fish/fish_plugins" "${XDG_CONFIG_HOME}/fish/fish_plugins"
 fi
 
 log_pass "Finish installation."
