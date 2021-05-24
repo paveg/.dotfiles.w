@@ -39,6 +39,7 @@ end
 
 # alias
 alias g='git'
+alias vi='nvim'
 
 function distinct -d "Returns a set of the distinct elements of coll."
     set -l uniq
