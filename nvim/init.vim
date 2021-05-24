@@ -7,14 +7,10 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Every launguage paths
-if isdirectory(expand('$PYENV_ROOT' .'/versions/nvim-python2/bin'))
-  let g:python_host_prog = expand('$PYENV_ROOT' . '/versions/nvim-python2/bin/python')
-endif
-if isdirectory(expand('$PYENV_ROOT' . '/versions/nvim-python3/bin'))
-  let g:python3_host_prog = expand('$PYENV_ROOT' . '/versions/nvim-python3/bin/python')
-endif
-let g:ruby_host_prog = expand('$ANYENV_ROOT' . '/envs/rbenv/shims/ruby')
-let g:node_host_prog = expand('$ANYENV_ROOT' . '/envs/nodenv/shims/node')
+let g:python_host_prog = expand('$ASDF_DIR' . '/shims/python2')
+let g:python3_host_prog = expand('$ASDF_DIR' . '/shims/python3')
+let g:ruby_host_prog = expand('$ASDF_DIR' . '/shims/ruby')
+let g:node_host_prog = expand('$ASDF_DIR' . '/shims/node')
 
 " Combine clipboard
 set clipboard+=unnamedplus

@@ -2,6 +2,10 @@
 
 source "./lib/utilities.sh"
 
+DOT_PATH="$(pwd)"
+
+echo "dot path is ${DOT_PATH}."
+
 log_info "Update apt packages"
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
@@ -42,11 +46,16 @@ if [[ ! -d "${XDG_CONFIG_HOME}/git" ]]; then
     ln -s "$(pwd)/.commit_template" "${XDG_CONFIG_HOME}/git/.commit_template"
 fi
 
-if [[ ! -d "${XDG_CONFIG_HOME}fish" ]]; then
+if [[ ! -d "${XDG_CONFIG_HOME}/fish" ]]; then
     log_info "Creates ${XDG_CONFIG_HOME}/fish directory."
     mkdir -p "${XDG_CONFIG_HOME}/fish"
     ln -s "$(pwd)/fish/config.fish" "${XDG_CONFIG_HOME}/fish/config.fish"
     ln -s "$(pwd)/fish/fish_plugins" "${XDG_CONFIG_HOME}/fish/fish_plugins"
+fi
+
+if [[ ! -d "${XDG_CONFIG_HOME}/nvim" ]]; then
+    log_info "Creates ${XDG_CONFIG_HOME}/nvim directory."
+    ln -s "$(pwd)/nvim" "${XDG_CONFIG_HOME}/nvim"
 fi
 
 log_pass "Finish installation."
