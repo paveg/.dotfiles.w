@@ -3,8 +3,18 @@
 source "./lib/utilities.sh"
 
 DOT_PATH="$(pwd)"
-
 echo "dot path is ${DOT_PATH}."
+
+os_detect
+
+if [[ "${PLATFORM}" == "osx" ]]; then
+  log_info "Your machine is MacOS"
+elif [[ "${PLATFORM}" == "linux" ]]; then
+  log_info "Your machine is Linux"
+else
+  log_warn "Is your machine os?"
+  exit 1
+fi
 
 log_info "Update apt packages"
 sudo apt-add-repository ppa:fish-shell/release-3
@@ -59,3 +69,4 @@ if [[ ! -d "${XDG_CONFIG_HOME}/nvim" ]]; then
 fi
 
 log_pass "Finish installation."
+
