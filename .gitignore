@@ -9,3 +9,11 @@ node_modules
 .envrc
 .env
 
+# Terraform
+**/.terraform/*
+.terraform.lock.hcl
+
+## tfstate files
+*.tfstate
+*.tfstate.*
+
