@@ -9,8 +9,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Every launguage paths
 let g:python_host_prog = expand('$ASDF_DIR' . '/shims/python2')
 let g:python3_host_prog = expand('$ASDF_DIR' . '/shims/python3')
-let g:ruby_host_prog = expand('$ASDF_DIR' . '/shims/ruby')
-let g:node_host_prog = expand('$ASDF_DIR' . '/shims/node')
+let g:ruby_host_prog = expand('$ASDF_DIR' . '/installs/ruby/3.0.0/bin/neovim-ruby-host')
+let g:node_host_prog = expand('$ASDF_DIR' . '/installs/nodejs/14.17.0/.npm/bin/neovim-node-host')
 
 " Combine clipboard
 set clipboard+=unnamedplus
@@ -88,4 +88,3 @@ highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
 highlight SpecialKey ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
-

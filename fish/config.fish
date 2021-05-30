@@ -4,8 +4,10 @@ set -U fish_user_paths /usr/local/bin $fish_user_paths
 set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
 set -lx FZF_DEFAULT_OPTS "--reverse --border"
 set -x GOPATH $HOME
-
+set -x EDITOR nvim
 source $HOME/.asdf/asdf.fish
+
+eval (direnv hook fish)
 
 if [ -z "$SSH_AUTH_SOCK" ]
     set RUNNING_AGENT (ps -ax | grep 'ssh-agent -c' | grep -v grep | wc -l | tr -d '[:space:]')
