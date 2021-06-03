@@ -1,0 +1,12 @@
+name: integrations
+
+on: [push]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    container: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: installing test
+        run: ./installer
