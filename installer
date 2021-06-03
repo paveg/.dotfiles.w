@@ -7,10 +7,6 @@ log_info "dot path is ${DOT_PATH}."
 
 os_detect
 
-crush() {
-    echo "crush exception"
-}
-
 if [[ "${PLATFORM}" == "osx" ]]; then
     log_info "Your machine is MacOS"
     exit 1
