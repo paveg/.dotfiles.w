@@ -9,6 +9,7 @@ os_detect
 
 if [[ "${PLATFORM}" == "osx" ]]; then
   log_info "Your machine is MacOS"
+  exit 1
 elif [[ "${PLATFORM}" == "linux" ]]; then
   log_info "Your machine is Linux"
 else
