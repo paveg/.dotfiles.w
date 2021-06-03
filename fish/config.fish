@@ -1,7 +1,7 @@
 starship init fish | source
 
 set -U fish_user_paths /usr/local/bin $fish_user_paths
-set -gx fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
+set -gx fish_user_paths "$HOME/linuxbrew/.linuxbrew/bin" $fish_user_paths
 set -lx FZF_DEFAULT_OPTS "--reverse --border"
 set -x GOPATH $HOME
 set -x EDITOR nvim

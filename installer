@@ -1,28 +1,26 @@
-#!/bin/bash
+#!/bin/bash -e
 
 source "./lib/utilities.sh"
 
 DOT_PATH="$(pwd)"
-echo "dot path is ${DOT_PATH}."
+log_info "dot path is ${DOT_PATH}."
 
 os_detect
 
+crush() {
+    echo "crush exception"
+}
+
 if [[ "${PLATFORM}" == "osx" ]]; then
-  log_info "Your machine is MacOS"
-  exit 1
+    log_info "Your machine is MacOS"
+    exit 1
 elif [[ "${PLATFORM}" == "linux" ]]; then
-  log_info "Your machine is Linux"
+    log_info "Your machine is Linux"
+    # TODO: Installation linuxbrew
 else
-  log_warn "Is your machine os?"
-  exit 1
+    log_warn "Is your machine os?"
+    exit 1
 fi
-
-log_info "Update apt packages"
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt-get update
-sudo apt-get install -y fish curl git
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish # Install fish package manager
-
 
 log_info "Check environment."
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
@@ -60,9 +58,9 @@ fi
 if [[ ! -d "${XDG_CONFIG_HOME}/fish" ]]; then
     log_info "Creates ${XDG_CONFIG_HOME}/fish directory."
     mkdir -p "${XDG_CONFIG_HOME}/fish"
-    ln -s "$(pwd)/fish/config.fish" "${XDG_CONFIG_HOME}/fish/config.fish"
-    ln -s "$(pwd)/fish/fish_plugins" "${XDG_CONFIG_HOME}/fish/fish_plugins"
 fi
+ln -nfs "$(pwd)/fish/config.fish" "${XDG_CONFIG_HOME}/fish/config.fish"
+ln -nfs "$(pwd)/fish/fish_plugins" "${XDG_CONFIG_HOME}/fish/fish_plugins"
 
 if [[ ! -d "${XDG_CONFIG_HOME}/nvim" ]]; then
     log_info "Creates ${XDG_CONFIG_HOME}/nvim directory."
@@ -70,4 +68,3 @@ if [[ ! -d "${XDG_CONFIG_HOME}/nvim" ]]; then
 fi
 
 log_pass "Finish installation."
-
