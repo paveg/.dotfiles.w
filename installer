@@ -45,10 +45,7 @@ fi
 log_info "Check git configuration."
 if [[ ! -d "${XDG_CONFIG_HOME}/git" ]]; then
     log_info "Creates ${XDG_CONFIG_HOME}/git directory."
-    mkdir -p "${XDG_CONFIG_HOME}/git"
-    ln -s "$(pwd)/.gitconfig" "${XDG_CONFIG_HOME}/git/config"
-    ln -s "$(pwd)/.gitignore" "${XDG_CONFIG_HOME}/git/ignore"
-    ln -s "$(pwd)/.commit_template" "${XDG_CONFIG_HOME}/git/.commit_template"
+    ln -s "$(pwd)/git" "${XDG_CONFIG_HOME}/git"
 fi
 
 if [[ ! -d "${XDG_CONFIG_HOME}/fish" ]]; then
