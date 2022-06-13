@@ -20,8 +20,11 @@ fi
 
 log_info "Check environment."
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
-    log_fail "Please set XDG_CONFIG_HOME environment."
-    exit 1
+    if [[ ! -d "$HOME/.bash_profile" ]]; then
+      ln -s "$(pwd)/.bash_profile" "$HOME/.bash_profile"
+      source "$HOME/.bash_profile"
+      log_pass "Created .bash_profile symbolic link."
+    fi
 fi
 
 log_pass "Start installation."
