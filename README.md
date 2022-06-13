@@ -14,7 +14,6 @@ and install fish package manager.
 $ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 ```
 
-
 ### Brew
 
 ```bash
@@ -44,3 +43,25 @@ $ brew install starship
 ```bash
 $ brew install direnv
 ```
+
+
+## Git
+
+Set credential helper to suit your environment.
+
+### WSL2 / Windows Subsystem for Linux 2
+
+Please, write in your git config file.
+
+```bash
+[credential]
+  helper = manager
+```
+
+### Linux
+
+```bash
+$ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh && sh ./install-from-source.sh && git-credential-manager-core configure
+$ export GCM_CREDENTIAL_STORE="gpg"
+```
+
