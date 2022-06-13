@@ -48,6 +48,8 @@ end
 alias g='git'
 alias vi='nvim'
 
+source $HOME/.local/secrets.fish
+
 function distinct -d "Returns a set of the distinct elements of coll."
     set -l uniq
     for a in $argv
