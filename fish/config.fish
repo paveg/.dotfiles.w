@@ -1,8 +1,13 @@
 starship init fish | source
 
+if status --is-interactive
+  eval ($HOME/.linuxbrew/bin/brew shellenv)
+end
+
 set -U fish_user_paths /usr/local/bin $fish_user_paths
 set -gx fish_user_paths "$HOME/linuxbrew/.linuxbrew/bin" $fish_user_paths
 set -lx FZF_DEFAULT_OPTS "--reverse --border"
+set -x PATH $HOME/.cargo/bin $PATH
 set -x GOPATH $HOME
 set -x EDITOR nvim
 source $HOME/.asdf/asdf.fish
